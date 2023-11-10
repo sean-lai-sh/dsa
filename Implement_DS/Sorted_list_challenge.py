@@ -19,7 +19,7 @@ def find_pivot(lst):
         if min_val > m_val:
             min_val = m_val
             min_index = m_p
-        if lst[l_p] > lst[r_p] or :
+        if lst[l_p] > lst[r_p]:
             r_p = m_p + 1
 
 

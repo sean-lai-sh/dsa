@@ -3,7 +3,7 @@ def remove_all(lst, value):
     checked_index = len(lst) - 1
     while checked_index > -1 and end is False:
         try:
-            my_remove(lst, value, starting_index=checked_index)
+            if l
             checked_index -= 1
         except ValueError:
             end = True

@@ -1,7 +1,5 @@
-import string
 
-
-def appearances(s: string, low, high):
+def appearances(s, low, high):
     if low < 0 or high >= len(s):
         raise IndexError("Invalid Range")
     if low == high:
@@ -14,5 +12,3 @@ def appearances(s: string, low, high):
         prev_dict.update({s[low]: 1})
     return prev_dict
 
-
-print(appearances("Hello World!", 0, 11))
