@@ -19,9 +19,11 @@ def copy_linked_list(lnk_lst):
     if lnk_lst.is_empty():
         return DoublyLinkedList()
     to_re = DoublyLinkedList()
-    to_re.header.next = lnk_lst.header.next
-    to_re.trailer.prev = 
-    to_re.n = lnk_lst.size
+    ptr = lnk_lst.header.next
+    while ptr != lnk_lst.trailer:
+        data = ptr.data
+        to_re.add_last(data)
+        ptr = ptr.next
     return to_re
 
 
