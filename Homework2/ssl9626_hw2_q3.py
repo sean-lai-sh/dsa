@@ -13,9 +13,10 @@ def factors(num):
             fact_pairs[curr_p] = i
             curr_p += 1
             yield i
-    for i in range(len(fact_pairs)-1, -1, -1):  # Runs max Sqrt(n)
+    for i in range(len(fact_pairs) - 1, -1, -1):  # Runs max Sqrt(n)
         if fact_pairs[i] != 0 and fact_pairs[i] != math.sqrt(num):
             yield int(num / fact_pairs[i])
+
 
 #
 # for k in factors(100):

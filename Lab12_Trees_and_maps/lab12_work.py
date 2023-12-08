@@ -1,5 +1,6 @@
 from LinkedBinaryTree import *
 
+
 def is_perfect_recur(root):
     if not root:
         return False
@@ -12,15 +13,17 @@ def is_perfect_recur_itr(root):
     line = ArrayQueue()
     line.enqueue(root)
     is_per = False
-    while (line.is_empty() == False):
+    while line.is_empty() == False:
         curr_node = line.dequeue()
-        if (curr_node.left and curr_node.right) or not (curr_node.left or curr_node.right):
+        if (curr_node.left and curr_node.right) or not (
+            curr_node.left or curr_node.right
+        ):
             is_per = True
         else:
             return False
-        if (curr_node.left is not None):
+        if curr_node.left is not None:
             line.enqueue(curr_node.left)
-        if (curr_node.right is not None):
+        if curr_node.right is not None:
             line.enqueue(curr_node.right)
     return is_per
 
@@ -33,6 +36,7 @@ def invert_bt_recur(root):
         root.right = left
     return root
 
+
 def invert_bt_itr(root):
     queue = ArrayQueue()
     queue.enqueue(root)
@@ -44,6 +48,7 @@ def invert_bt_itr(root):
         if n.right:
             queue.enqueue(n.right)
     return root
+
 
 def merge_bt(t1, t2):
     def helper(node_from, node_to):

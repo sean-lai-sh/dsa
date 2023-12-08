@@ -23,6 +23,7 @@ def reverse_dll_by_data(dll: DoublyLinkedList):
         rInd -= 1
     return dll
 
+
 def fake_delete(dll, node):
     data = node.data
     prev_node = node.prev
@@ -31,6 +32,7 @@ def fake_delete(dll, node):
     next_node.prev = prev_node
     dll.n -= 1
     return data
+
 
 def reverse_dll_by_node(dll: DoublyLinkedList):
     if dll.is_empty() or len(dll) == 1:
@@ -59,4 +61,3 @@ def reverse_dll_by_node(dll: DoublyLinkedList):
 print(t_ll)
 print(reverse_dll_by_data(t_ll))
 print(reverse_dll_by_node(t_ll))
-

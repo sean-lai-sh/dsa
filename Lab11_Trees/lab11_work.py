@@ -8,6 +8,7 @@ def bt_sum_even(root):
     else:
         return left + right
 
+
 def contains(self, item):
     def c_helper(node, item):
         if self.root is None:
@@ -15,7 +16,9 @@ def contains(self, item):
         if node.data == item:
             return True
         return c_helper(node.left, item) or c_helper(node.right, item)
+
     return c_helper(self.root, item)
+
 
 def is_full(root):
     if root.left and not root.right:

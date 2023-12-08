@@ -2,7 +2,9 @@ from DoublyLinkedList import *
 
 
 def merge_linked_lists(srt_lnk_lst1: DoublyLinkedList, srt_lnk_lst2: DoublyLinkedList):
-    def merge_sublists(ll1: DoublyLinkedList, ll1_cursor, ll2: DoublyLinkedList, ll2_cursor):
+    def merge_sublists(
+        ll1: DoublyLinkedList, ll1_cursor, ll2: DoublyLinkedList, ll2_cursor
+    ):
         if ll1.is_empty() and ll2.is_empty():
             return DoublyLinkedList()
         if ll1_cursor == ll1.trailer and ll2_cursor == ll2.trailer:
@@ -24,7 +26,10 @@ def merge_linked_lists(srt_lnk_lst1: DoublyLinkedList, srt_lnk_lst2: DoublyLinke
                     prev_dll.add_first(ll2_cursor.data)
             return prev_dll
 
-    return merge_sublists(srt_lnk_lst1, srt_lnk_lst1.header.next, srt_lnk_lst2, srt_lnk_lst2.header.next)
+    return merge_sublists(
+        srt_lnk_lst1, srt_lnk_lst1.header.next, srt_lnk_lst2, srt_lnk_lst2.header.next
+    )
+
 
 # li1 = DoublyLinkedList()
 # for elem in [1 , 3 , 5 , 6 , 8]:

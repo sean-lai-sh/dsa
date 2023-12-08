@@ -99,7 +99,7 @@ def yield_flattened(lst):
 
 
 def flattened_helper(lst, low, high):
-    if low <= high: # Don't yield if low > high
+    if low <= high:  # Don't yield if low > high
         if isinstance(lst[low], list):
             yield from flattened_helper(lst[low], 0, len(lst[low]) - 1)
         else:
@@ -107,7 +107,7 @@ def flattened_helper(lst, low, high):
         yield from flattened_helper(lst, low + 1, high)
 
 
-def print_flattened(lst): # provided by lab07
+def print_flattened(lst):  # provided by lab07
     print("[" + ", ".join(str(num) for num in yield_flattened(lst)) + "]")
 
 
@@ -124,7 +124,7 @@ print("split parity=", split_parity([1, 2, 3, 4, 5, 6, 7, 8], 0, 7))
 print("nested_sum= ", nested_sum([[1, 2], 3, [4, [5, 6, [7], 8]]]))
 print("nested depth array = ", [[[[[1]]]]])
 print("nested depth level =", nested_depth_level([[[[[1]]]]]))
-print("nested array for testing methods below = " , nest_lst)
+print("nested array for testing methods below = ", nest_lst)
 print("print flattened =", end=" ")
 print_flattened(nest_lst)
 print("prior to deep reverse= ", nest_lst)

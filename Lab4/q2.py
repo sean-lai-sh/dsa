@@ -9,7 +9,10 @@ def reverse_vowels(input_str):
         temp_left = list_str[left_pointer]
         temp_right = list_str[right_pointer]
         if temp_left in vowels and temp_right in vowels:
-            list_str[left_pointer], list_str[right_pointer] = list_str[right_pointer], list_str[left_pointer]
+            list_str[left_pointer], list_str[right_pointer] = (
+                list_str[right_pointer],
+                list_str[left_pointer],
+            )
             left_pointer += 1
             right_pointer -= 1
         if temp_left not in vowels:
@@ -17,5 +20,6 @@ def reverse_vowels(input_str):
         if temp_right not in vowels:
             right_pointer -= 1
     return "".join(list_str)
+
 
 print(reverse_vowels("Tandon"))

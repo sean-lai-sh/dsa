@@ -16,19 +16,19 @@ class StaticArrayStack:
         return self.n
 
     def is_empty(self):
-        return (len(self) == 0)
+        return len(self) == 0
 
     def is_full(self):
-        return (len(self) == self.capacity)
+        return len(self) == self.capacity
 
     def push(self, item):
-        if (self.is_full()):
+        if self.is_full():
             raise Exception("Stack is full")
         self.data[self.n] = item
         self.n += 1
 
     def pop(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Stack is empty")
         item = self.data[self.n - 1]
         self.data[self.n - 1] = None
@@ -36,7 +36,7 @@ class StaticArrayStack:
         return item
 
     def top(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Stack is empty")
         return self.data[self.n - 1]
 
@@ -55,11 +55,11 @@ class ArrayStack:
         self.data.append(val)
 
     def top(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Stack is empty")
         return self.data[-1]
 
     def pop(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Stack is empty")
         return self.data.pop()

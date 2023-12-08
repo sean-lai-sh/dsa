@@ -42,4 +42,3 @@ e1.header.next.data = 10
 print("After value change", e1)
 print(ll_test)
 print(copyT)
-

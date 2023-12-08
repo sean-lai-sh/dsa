@@ -1,13 +1,13 @@
 from DoublyLinkedList import *
 
-class CompactString:
 
+class CompactString:
     def __init__(self, orig_str):
-        ''' Initializes a CompactString object
-        representing the string given in orig_str'''
+        """Initializes a CompactString object
+        representing the string given in orig_str"""
         self.data = DoublyLinkedList()
         if len(orig_str) == 0:
-            self.data.add_first(('', 1))
+            self.data.add_first(("", 1))
             return
         counter = 0
         curr_char = orig_str[0]
@@ -22,7 +22,7 @@ class CompactString:
         # print(self.data)
 
     def __add__(self, other):
-        """ Creates and returns a CompactString object that
+        """Creates and returns a CompactString object that
         represent the concatenation of self and other,
         also of type CompactString"""
         new_cs = CompactString("")
@@ -49,7 +49,7 @@ class CompactString:
         return new_cs
 
     def __lt__(self, other):
-        """ returns True if”f self is lexicographically
+        """returns True if”f self is lexicographically
         less than other, also of type CompactString"""
         s_cursor = self.data.header.next
         o_cursor = other.data.header.next
@@ -69,10 +69,8 @@ class CompactString:
 
         return o_cursor.data is not None
 
-
-
     def __le__(self, other):
-        """ returns True if”f self is lexicographically
+        """returns True if”f self is lexicographically
         less than or equal to other, also of type
         CompactString"""
         s_cursor = self.data.header.next
@@ -86,15 +84,15 @@ class CompactString:
             o_cursor = o_cursor.next
         return True
 
-
     def __gt__(self, other):
-        ''' returns True if”f self is lexicographically
-        greater than other, also of type CompactString'''
+        """returns True if”f self is lexicographically
+        greater than other, also of type CompactString"""
         return not self <= other
+
     def __ge__(self, other):
-        ''' returns True if”f self is lexicographically
+        """returns True if”f self is lexicographically
         greater than or equal to other, also of type
-        CompactString'''
+        CompactString"""
         return not self < other
 
     def __iter__(self):
@@ -104,13 +102,16 @@ class CompactString:
             ptr = ptr.next
 
     def __repr__(self):
-        ''' Creates and returns the string representation
-        (of type str) of self'''
+        """Creates and returns the string representation
+        (of type str) of self"""
+
         def p_repeat(ptr):
             return "".join(ptr.data[0] for i in range(ptr.data[1]))
+
         if self.data.is_empty():
             return ""
         return "".join([p_repeat(elem) for elem in self])
+
 
 # s1 = CompactString('aaaaabbbaaac')
 # s2 = CompactString('aaaaaaacccaaaa')

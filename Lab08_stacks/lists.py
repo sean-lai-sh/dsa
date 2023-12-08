@@ -139,13 +139,17 @@ class ArrayList:
         l_pointer = 0
         r_pointer = self.size - 1
         while l_pointer < r_pointer:
-            self.array[l_pointer], self.array[r_pointer] = self.array[r_pointer], self.array[l_pointer]
+            self.array[l_pointer], self.array[r_pointer] = (
+                self.array[r_pointer],
+                self.array[l_pointer],
+            )
             l_pointer += 1
             r_pointer += 1
         pass
 
     def __repr__(self):
         return "[" + ", ".join(str(self.array[i]) for i in range(self.size)) + "]"
+
 
 # ARRAY RESULTS IN NULL ERROR if value is not instantiated
 #

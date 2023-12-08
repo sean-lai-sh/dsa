@@ -68,6 +68,7 @@ class SinglyLinkedList:
                 cursor = cursor.next
             cursor.next = SinglyLinkedList.Node(val)
             self.n += 1
+
     def delete_first(self):
         if self.is_empty():
             raise Exception()
@@ -115,6 +116,7 @@ class SinglyLinkedList:
 
     def __repr__(self):
         return "[" + " -> ".join([str(elem) for elem in self]) + "]"
+
     def __iter__(self):
         cursor = self.header.next
         while cursor is not None:

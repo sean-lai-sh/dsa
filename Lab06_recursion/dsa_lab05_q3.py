@@ -8,10 +8,9 @@ def fib(n):
 
 def fib_help(n, calc_vals):
     if n <= 1:
-
         return n
     else:
-        return fib(n-1) + fib(n-2)
+        return fib(n - 1) + fib(n - 2)
 
 
 for i in range(0, 17):

@@ -10,9 +10,6 @@ class Unsignedbinaryinteger:
     def __lt__(self, other):
         return self.decimal() < other.decimal()
 
-
-
-
     def __gt__(self, other):
         # return len(self.str_val) > len(other.str_val)
         return other < self
@@ -31,7 +28,7 @@ class Unsignedbinaryinteger:
         while still_Comp:
             temp = f_sum % 10
             if temp == 1:
-                f_sum = f_sum/10
+                f_sum = f_sum / 10
                 final += "1"
             elif temp == 2:
                 f_sum = (f_sum / 10) + 1
@@ -61,15 +58,16 @@ class Unsignedbinaryinteger:
         return self.largest_twos_power() == self.str_val
 
     def largest_twos_power(self):
-        if self.str_val[0] == '0':
+        if self.str_val[0] == "0":
             return 0
         else:
             s_len = len(self.str_val)
-            largest_pow = "1" + "0" * (s_len-1)
+            largest_pow = "1" + "0" * (s_len - 1)
             return largest_pow
 
     def __repr__(self):
         return "0b" + self.str_val
+
 
 USB1 = Unsignedbinaryinteger("100")
 USB2 = Unsignedbinaryinteger("110")

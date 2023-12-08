@@ -24,5 +24,5 @@ def permute(val, start_lst, n):
     for i in range(len(res_lst)):
         if i % init_len == 0:
             k += 1
-        res_lst[i].insert(k,val)
+        res_lst[i].insert(k, val)
     return res_lst

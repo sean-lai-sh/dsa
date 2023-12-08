@@ -12,7 +12,6 @@ def two_sum(srt_lst, target):
     return None
 
 
-
 # srt_lst1 = [-2, 7, 11, 15, 20, 21]
 # print(two_sum(srt_lst1, 22))
 # lst1 = [1, 2, 3, 4, 5]

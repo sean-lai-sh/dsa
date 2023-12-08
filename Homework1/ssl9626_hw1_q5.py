@@ -8,4 +8,3 @@ def fibs(n):
         yield s_n
         f_n, s_n = s_n, (f_n + s_n)
         itr += 1
-

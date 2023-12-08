@@ -10,7 +10,6 @@ class DoublyLinkedList:
             self.next = None
             self.prev = None
 
-
     def __init__(self):
         self.header = DoublyLinkedList.Node()
         self.trailer = DoublyLinkedList.Node()
@@ -22,7 +21,7 @@ class DoublyLinkedList:
         return self.size
 
     def is_empty(self):
-        return (len(self) == 0)
+        return len(self) == 0
 
     def add_after(self, node, val):
         new_node = DoublyLinkedList.Node(val)
@@ -55,18 +54,18 @@ class DoublyLinkedList:
         return data
 
     def delete_first(self):
-        if(self.is_empty() == True):
+        if self.is_empty() == True:
             raise Exception("List is empty")
         return self.delete_node(self.header.next)
- 
+
     def delete_last(self):
-        if(self.is_empty() == True):
+        if self.is_empty() == True:
             raise Exception("List is empty")
         return self.delete_node(self.trailer.prev)
 
     def __iter__(self):
         cursor = self.header.next
-        while(cursor is not self.trailer):
+        while cursor is not self.trailer:
             yield cursor.data
             cursor = cursor.next
 
@@ -75,13 +74,10 @@ class DoublyLinkedList:
 
     def remove_all(self, elem):
         cursor = self.header.next
-        while(cursor.next is not None):
-            if(cursor.data == elem):
+        while cursor.next is not None:
+            if cursor.data == elem:
                 next_node = cursor.next
                 self.delete_node(cursor)
                 cursor = next_node
             else:
                 cursor = cursor.next
-
-
-

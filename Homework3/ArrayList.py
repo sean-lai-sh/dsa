@@ -1,6 +1,9 @@
 import ctypes  # provides low-level arrays
+
+
 def make_array(n):
     return (n * ctypes.py_object)()
+
 
 class ArrayList:
     def __init__(self):
@@ -11,9 +14,8 @@ class ArrayList:
     def __len__(self):
         return self.n
 
-
     def append(self, val):
-        if (self.n == self.capacity):
+        if self.n == self.capacity:
             self.resize(2 * self.capacity)
         self.data[self.n] = val
         self.n += 1
@@ -29,26 +31,23 @@ class ArrayList:
         for elem in iter_collection:
             self.append(elem)
 
-
     def __getitem__(self, ind):
-        if (not (-self.n <= ind <= self.n - 1)):
-            raise IndexError('invalid index')
-        if (ind < 0):
+        if not (-self.n <= ind <= self.n - 1):
+            raise IndexError("invalid index")
+        if ind < 0:
             ind = self.n + ind
         return self.data[ind]
 
     def __setitem__(self, ind, val):
-        if (not (-self.n <= ind <= self.n - 1)):
-            raise IndexError('invalid index')
-        if (ind < 0):
+        if not (-self.n <= ind <= self.n - 1):
+            raise IndexError("invalid index")
+        if ind < 0:
             ind = self.n + ind
         self.data[ind] = val
 
-
     def __repr__(self):
         data_as_strings = [str(self.data[i]) for i in range(self.n)]
-        return '[' + ', '.join(data_as_strings) + ']'
-
+        return "[" + ", ".join(data_as_strings) + "]"
 
     def __add__(self, other):
         res = ArrayList()

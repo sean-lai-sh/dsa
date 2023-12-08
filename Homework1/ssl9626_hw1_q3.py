@@ -29,4 +29,3 @@ def get_squares_odd(n):
 
 sum([i * i for i in range(int(math.ceil(math.sqrt(16))))])
 sum([i * i for i in range(1, int(math.ceil(math.sqrt(16))), 2)])
-

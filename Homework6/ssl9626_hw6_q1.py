@@ -24,6 +24,7 @@ class LinkedQueue:
             raise Exception("Empty Queue")
         return self.data.header.next.data
 
+
 #
 # print("CHANGE IMPORT STATEMENTS")
 #

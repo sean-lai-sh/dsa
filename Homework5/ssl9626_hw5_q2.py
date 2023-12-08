@@ -2,7 +2,6 @@ from ArrayStack import *
 
 
 class MaxStack:
-
     def __init__(self):
         self.data = ArrayStack()
         self.prev_max = None

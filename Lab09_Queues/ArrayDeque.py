@@ -3,6 +3,7 @@ from ArrayQueue import *
 
 class ArrayDeque:
     INITIAL_CAPACITY = 4
+
     def __init__(self):
         self.data = make_array(self.INITIAL_CAPACITY)
         self.n = 0
@@ -27,9 +28,9 @@ class ArrayDeque:
         return self.data[(self.first_ind + self.n) % self.capacity]
 
     def enqueue_first(self, elem):
-        if (self.n == self.capacity):
+        if self.n == self.capacity:
             self.resize(2 * self.capacity)
-        if (self.is_empty()):
+        if self.is_empty():
             self.data[0] = elem
             self.first_ind = 0
             self.n += 1
@@ -42,9 +43,9 @@ class ArrayDeque:
             self.n += 1
 
     def enqueue_last(self, elem):
-        if (self.n == self.capacity):
+        if self.n == self.capacity:
             self.resize(2 * self.capacity)
-        if (self.is_empty()):
+        if self.is_empty():
             self.data[0] = elem
             self.front_ind = 0
             self.n += 1
@@ -54,30 +55,28 @@ class ArrayDeque:
             self.n += 1
 
     def dequeue_first(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Queue is empty")
         value = self.data[self.front_ind]
         self.data[self.front_ind] = None
         self.front_ind = (self.front_ind + 1) % self.capacity
         self.n -= 1
-        if (self.is_empty()):
-            self.first= None
-        if ((self.n < self.capacity // 4) and
-                (self.capacity > self.INITIAL_CAPACITY)):
+        if self.is_empty():
+            self.first = None
+        if (self.n < self.capacity // 4) and (self.capacity > self.INITIAL_CAPACITY):
             self.resize(self.capacity // 2)
         return value
 
     def dequeue_last(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Queue is empty")
         index = (self.front_ind + self.n) % self.capacity
         value = self.data[index]
         self.data[index] = None
         self.n -= 1
-        if (self.is_empty()):
+        if self.is_empty():
             self.first_ind = None
-        if ((self.n < self.capacity // 4) and
-                (self.capacity > self.INITIAL_CAPACITY)):
+        if (self.n < self.capacity // 4) and (self.capacity > self.INITIAL_CAPACITY):
             self.resize(self.capacity // 2)
         return value
 

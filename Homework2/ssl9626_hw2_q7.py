@@ -20,5 +20,6 @@ def findChange(lst01):
             curr_index += (lst_len - curr_index) // 2
     return 0
 
+
 # lst = [1]
 # print(findChange(lst))

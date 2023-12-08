@@ -50,7 +50,7 @@ class MidStack:
             ret_val = self.second_half.dequeue_last()
         else:
             ret_val = self.first_half.pop()
-        if len(self.second_half) == len(self)//4:
+        if len(self.second_half) == len(self) // 4:
             for i in range(len(self.first_half) // 4):
                 self.second_half.enqueue_first(self.first_half.pop())
         return ret_val

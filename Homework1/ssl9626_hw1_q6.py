@@ -62,8 +62,7 @@ class Vector:
             return other * self
 
     def __str__(self):
-        return '<' + str(self.coords)[1:-1] + '>'
+        return "<" + str(self.coords)[1:-1] + ">"
 
     def __repr__(self):
         return str(self)
-

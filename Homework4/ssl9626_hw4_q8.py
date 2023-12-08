@@ -14,4 +14,4 @@ def flat_list(nested_lst, low, high):
 
 
 nest_lst = [[1, 2], 3, [4, [5, 6, [7], 8]], [[[[9]]]]]
-print(flat_list(nest_lst,0,len(nest_lst)-1))
+print(flat_list(nest_lst, 0, len(nest_lst) - 1))

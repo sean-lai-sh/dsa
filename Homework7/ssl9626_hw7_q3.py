@@ -1,7 +1,10 @@
 import math
+
+
 def is_height_balanced(bin_tree):
     if bin_tree.is_empty():
         return True
+
     def bal_help(root):
         if not root:
             return (0, True)

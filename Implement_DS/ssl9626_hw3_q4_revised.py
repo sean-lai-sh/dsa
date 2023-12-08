@@ -1,4 +1,4 @@
-def remove_all(lst, value): # Now in O(n) time
+def remove_all(lst, value):  # Now in O(n) time
     left = 0
     right = len(lst) - 1
     num_pop = 0
@@ -29,5 +29,6 @@ def remove_all(lst, value): # Now in O(n) time
         lst.pop()
     return lst
 
-t_lst = [1,2,3,1,1,5, 4, 1,1,1]
+
+t_lst = [1, 2, 3, 1, 1, 5, 4, 1, 1, 1]
 print(remove_all(t_lst, 1))

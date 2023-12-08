@@ -5,6 +5,7 @@ import math
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 def reverse_list(lst, low=None, high=None):
     i, j = 0, 0
@@ -40,4 +41,4 @@ reverse_list(lst2, 1, 3)
 print(lst2)
 
 for n in powers_of_two(6):
-    print(n, end= ", ")
+    print(n, end=", ")

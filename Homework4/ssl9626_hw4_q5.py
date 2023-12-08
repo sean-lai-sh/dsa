@@ -1,4 +1,3 @@
-
 def count_lowercase(s, low, high):
     if low < 0 or high > len(s):
         raise IndexError("Invalid Range!!!!")
@@ -20,6 +19,7 @@ def is_number_of_lowercase_even(s, low, high):
         return False
     else:
         return prev
+
 
 # print(count_lowercase("abcde", 0,4))
 # print(is_lowercase_even("abcDeF", 0 ,5))

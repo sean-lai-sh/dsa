@@ -1,5 +1,6 @@
 from ArrayQueue import *
 
+
 def flatten_list_by_depth(lst):
     q = ArrayQueue()
     n_lst = []
@@ -15,9 +16,7 @@ def flatten_list_by_depth(lst):
     return n_lst
 
 
-
-
-def n_bonnaci(n,k):
+def n_bonnaci(n, k):
     Store_val = StaticArrayQueue(n)
     num_itr = 0
     while num_itr < k:
@@ -28,7 +27,7 @@ def n_bonnaci(n,k):
         else:
             new_val = 0
             new_val += Store_val.dequeue()
-            for i in range(n-1):
+            for i in range(n - 1):
                 t_val = Store_val.dequeue()
                 new_val += t_val
                 Store_val.enqueue(t_val)
@@ -37,12 +36,10 @@ def n_bonnaci(n,k):
             yield new_val
 
 
-lst = [ [[[0]]], [1, 2], 3, [4, [5, 6, [7]], 8], 9]
+lst = [[[[0]]], [1, 2], 3, [4, [5, 6, [7]], 8], 9]
 new_lst = flatten_list_by_depth(lst)
 print(new_lst)
 
 
-
-for i in n_bonnaci(4,2):
+for i in n_bonnaci(4, 2):
     print(i, end=", ")
-

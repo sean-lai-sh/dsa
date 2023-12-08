@@ -3,6 +3,7 @@ from lists import ArrayList
 
 # Import relevant classes
 
+
 class ArrayStack:
     def __init__(self):
         # Make an array and define self parameters
@@ -27,7 +28,7 @@ class ArrayStack:
         # return len(arr) -1 value
         if self.is_empty():
             raise Exception("Stack is empty")
-        return self.data_arr[- 1]
+        return self.data_arr[-1]
 
     def __len__(self):
         return len(self.data_arr)

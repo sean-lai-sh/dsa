@@ -1,5 +1,9 @@
 def list_min(lst, low, high):
-    if not isinstance(lst, list) or not isinstance(low, int) or not isinstance(high, int):
+    if (
+        not isinstance(lst, list)
+        or not isinstance(low, int)
+        or not isinstance(high, int)
+    ):
         raise TypeError("Invalid input(s)")
     if low < 0 or high > len(lst):
         raise IndexError("Invalid Range")
@@ -10,4 +14,3 @@ def list_min(lst, low, high):
         return lst[low]
     else:
         return prev_min
-

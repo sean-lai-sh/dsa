@@ -1,4 +1,4 @@
-class LinkedList():
+class LinkedList:
     # Nesting of the Node makes it a pseudo name of linked list node
     class Node:
         def __init__(self, e=None):

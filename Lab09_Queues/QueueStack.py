@@ -1,5 +1,6 @@
 from ArrayQueue import *
 
+
 class QueueStack:
     def __init__(self):
         self.data = ArrayQueue()

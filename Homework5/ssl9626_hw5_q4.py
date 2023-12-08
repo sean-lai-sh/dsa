@@ -19,7 +19,7 @@ class Queue:
         if self.is_empty():
             raise Exception("Empty Queue")
         if self.front_view.is_empty():  # Reverse as needed
-            while not self.back_view.is_empty(): # O(N) run only after n enqeues
+            while not self.back_view.is_empty():  # O(N) run only after n enqeues
                 self.front_view.push(self.back_view.pop())
 
         return self.front_view.pop()
@@ -31,5 +31,6 @@ class Queue:
             while not self.back_view.is_empty():
                 self.front_view.push(self.back_view.pop())
         return self.front_view.top()
+
     def is_empty(self):
         return len(self) == 0

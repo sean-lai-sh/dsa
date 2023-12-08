@@ -23,7 +23,7 @@ def operation(stack, opn, key_var):
     elif opn == "/":
         return val1 / val2
     else:
-        return val1 ** val2
+        return val1**val2
 
 
 curr_statement = ""
@@ -59,4 +59,3 @@ while end_program is False:
         var_k = currentStack.pop()
         variables[var_k] = re_val
         print(var_k)
-

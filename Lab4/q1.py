@@ -14,6 +14,7 @@ def is_palindrome(s):
         left_pointer += 1
     return True
 
-print(is_palindrome("TasaT")) # True
-print(is_palindrome("Task")) # False
-print(is_palindrome([1,2,3,4])) # Raise Type Error
+
+print(is_palindrome("TasaT"))  # True
+print(is_palindrome("Task"))  # False
+print(is_palindrome([1, 2, 3, 4]))  # Raise Type Error

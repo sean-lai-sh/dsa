@@ -3,6 +3,7 @@ from DoublyLinkedList import DoublyLinkedList
 
 class Integer:
     ASCII_CONST = 48
+
     def __init__(self, num_str):
         self.data = DoublyLinkedList()
         got_int = False
@@ -14,7 +15,6 @@ class Integer:
                 got_int = True
             elif got_int and num_str[i] == "0":
                 self.data.add_last(num_str[i])
-
 
     def __add__(self, other):
         lower_len = None
@@ -61,9 +61,6 @@ class Integer:
             to_re.data.add_first(temp)
         return to_re
 
-
-
-
     def __mul__(self, other):
         lower_len = None
         longer_lst = None
@@ -105,8 +102,8 @@ class Integer:
                 else:
                     t_sum = str(t_sum)
                     l_sum = len(t_sum)
-                    temp = t_sum[0:l_sum-1]
-                    t_int.data.add_first(t_sum[l_sum-1])
+                    temp = t_sum[0 : l_sum - 1]
+                    t_int.data.add_first(t_sum[l_sum - 1])
             if temp != "0":
                 t_int.data.add_first(temp)
             # print("Temp Int:", t_int)
@@ -120,6 +117,7 @@ class Integer:
     def __repr__(self):
         re_val = "".join([elem for elem in self.data])
         return re_val
+
 
 # # #
 # i1 = Integer("13")

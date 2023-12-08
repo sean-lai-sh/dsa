@@ -1,7 +1,7 @@
 from DS_packages import *
 
-class LinkedStack:
 
+class LinkedStack:
     def __init__(self):
         self.data = DoublyLinkedList()
 

@@ -46,6 +46,7 @@ def flatten_list(lst):
     final_lst.reverse()
     return final_lst
 
+
 def stack_sort(s):
     help_stack = ArrayStack()
     help_stack.push(s.pop())
@@ -96,7 +97,7 @@ lst = [[[[0]]], [1, 2], 3, [4, [5, 6, [7]], 8], 9]
 print(flatten_list(lst))
 
 
-#Q4 Optional:
+# Q4 Optional:
 stack_sort(t_stack)
 
 while not t_stack.is_empty():
