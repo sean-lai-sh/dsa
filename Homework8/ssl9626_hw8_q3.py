@@ -1,50 +1,55 @@
+import sys
+
 from BinarySearchTreeMap import BinarySearchTreeMap as BSTMap
 
 
+def getPreIndex():
+    return constructTreeUtil.preIndex
+
+
+def incrementPreIndex():
+    # Use global scoped value to help with parameters and not losing value as we recursively go
+    # through list
+    constructTreeUtil.preIndex += 1
+def constructTreeUtil(lst, key, mini, maxi, size):
+    # Base Case
+    if (getPreIndex() >= size):
+        return None
+
+    root = None
+
+    # Is our current key element in the subtree or not
+    if (key > mini and key < maxi):
+
+        # Add an index to check and create the node
+        root = BSTMap.Node(BSTMap.Item(key))
+        incrementPreIndex()
+
+        if (getPreIndex() < size):
+            root.left = constructTreeUtil(lst, lst[getPreIndex()],mini, key, size)
+        if (getPreIndex() < size):
+            root.right = constructTreeUtil(lst, lst[getPreIndex()], key, maxi, size)
+
+    return root
 def restore_bst(prefix_lst):
     if len(prefix_lst) == 0:
         return BSTMap()
-
-    def res_helper(lst, i_parent, i_self):
-        if len(lst) <= i_self:
-            return None, i_self
-        else:
-            print(lst[i_self])
-            new_node = BSTMap.Node(BSTMap.Item(lst[i_self], None))
-            r_ptr = i_self
-            if i_self + 1 <= len(lst):
-                if lst[i_self + 1] < lst[i_self]:
-                    print("I'm searching:", lst[i_self + 1])
-                    l_data = res_helper(lst, i_self, i_self + 1)
-                    new_node.left = l_data[0]
-                    r_ptr = l_data[1]
-                    print(l_data)
-                if i_self == i_parent:
-                    if r_ptr + 1 < len(lst) and lst[i_self] < lst[r_ptr + 1]:
-                        r_data = res_helper(lst, i_self, r_ptr + 1)
-                        new_node.right = r_data[0]
-                        r_ptr = r_data[1]
-                else:
-                    if (
-                        r_ptr + 1 < len(lst)
-                        and lst[i_self] < lst[r_ptr + 1] < lst[i_parent]
-                    ):
-                        r_data = res_helper(lst, i_self, r_ptr + 1)
-                        new_node.right = r_data[0]
-                        r_ptr = r_data[1]
-
-            return new_node, r_ptr
-
-    data = res_helper(prefix_lst, 0, 0)
+    INT_MAX = sys.maxsize
+    INT_MIN = -sys.maxsize
+    def help(pre):
+        constructTreeUtil.preIndex = 0
+        size = len(pre)
+        return constructTreeUtil(pre, pre[0], INT_MIN, INT_MAX, size)
     tree = BSTMap()
-    tree.root = data[0]
+    tree.root = help(prefix_lst)
     tree.n = len(prefix_lst)
     return tree
 
 
-t = restore_bst([9, 7, 3, 1, 5, 13, 11, 15])
-for elem in t:
-    print(elem)
+
+# t = restore_bst([9,7,3,1,5,13,11,15])
+# for elem in t:
+#     print(elem)
 # if i_self >= len(lst):
 #     return None, i_self
 # else:

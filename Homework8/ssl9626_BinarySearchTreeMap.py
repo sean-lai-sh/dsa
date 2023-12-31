@@ -80,8 +80,8 @@ class BinarySearchTreeMap:
             while cursor is not None:
                 parent = cursor
                 if key < cursor.item.key:
-                    cursor = cursor.left
                     cursor.lcount += 1
+                    cursor = cursor.left
                 else:
                     cursor = cursor.right
             if key < parent.item.key:
@@ -103,7 +103,8 @@ class BinarySearchTreeMap:
     def delete_node(self, node_to_delete):
         item = node_to_delete.item
         num_children = node_to_delete.num_children()
-
+        #print("Node to delete, ", node_to_delete.item.key)
+        #print([(elem.item.key, elem.lcount) for elem in self.inorder()])
         if node_to_delete is self.root:
             if num_children == 0:
                 self.root = None
@@ -128,6 +129,7 @@ class BinarySearchTreeMap:
             if num_children == 0:
                 parent = node_to_delete.parent
                 if node_to_delete is parent.left:
+                    parent.lcount -= 1
                     parent.left = None
                 else:
                     parent.right = None
@@ -141,13 +143,12 @@ class BinarySearchTreeMap:
                     child = node_to_delete.left
                 else:
                     child = node_to_delete.right
-
                 if node_to_delete is parent.left:
+                    parent.lcount -= 1
                     parent.left = child
                 else:
                     parent.right = child
                 child.parent = parent
-
                 node_to_delete.disconnect()
                 self.n -= 1
 
@@ -155,8 +156,28 @@ class BinarySearchTreeMap:
                 max_in_left = self.subtree_max(node_to_delete.left)
                 node_to_delete.item = max_in_left.item
                 self.delete_node(max_in_left)
-
+        self.rerank_tree()
         return item
+    def rerank_tree(self):
+        def count_nodes(root):
+            if root:
+                return 1 + count_nodes(root.left) + count_nodes(root.right)
+            else:
+                return 0
+
+        def helper(root):
+            if root:
+                left_data = helper(root.left)
+                if root.lcount > count_nodes(root.left):
+                    root.lcount = count_nodes(root.left)
+                right_data = helper(root.right)
+
+                return 0,0
+            else:
+                return 0,0
+
+        helper(self.root)
+
 
     def subtree_max(self, subtree_root):
         cursor = subtree_root
@@ -180,24 +201,24 @@ class BinarySearchTreeMap:
             yield node.item.key
 
     def get_ith_smallest(self, i):
-        if i < 0 or i >= self.n:
+        if i < 1 or i > self.n:
             raise IndexError("Invalid Index for Tree")
+        if self.is_empty():
+            raise Exception("Empty Tree, there is no smallest element")
         def ith_smallest_helper(root, k): # use k to not be confused
 
             # Base case
-            if (root == None):
-                return None
+            if root:
+                count = root.lcount + 1
 
-            count = root.lCount + 1
+                if (count == k):
+                    return root
 
-            if (count == k):
-                return root
+                if (count > k):
+                    return ith_smallest_helper(root.left, k)
 
-            if (count > k):
-                return ith_smallest_helper(root.left, k)
-
-            # Else search in right subtree
-            return ith_smallest_helper(root.right, k - count)
+                # Else search in right subtree
+                return ith_smallest_helper(root.right, k - count)
 
         return ith_smallest_helper(self.root, i).item.key
 
